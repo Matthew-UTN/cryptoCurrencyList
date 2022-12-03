@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="body">
+    <div class="filter-body">
+        <div class="container-forms">
+            <form class="crypto-search">
+                <div class="search">
+                    <div class="title">Search by</div>   
+                </div>
+                <div class="center">
+                    <span>Alphabetical order: </span>
+                    <select #selectAlphabet (change)="activateFilterAlphabet(selectAlphabet.value)">
+                        <option class="label" [selected]="filterFieldAlphabet == ''" value="No filter">No Filter</option>
+                        <option class="label" *ngFor="let filter of filtersAlphabet" [value]="filter">
+                            {{filter}}
+                        </option>
+                    </select>
+                    <div class="container-button">
+                        <button class="remove-btn" [disabled]="inactiveFilterAlphabet()" (click)="removeFilterAlphabet()">X</button>
+                    </div>
+                </div>
+                <div class="center">
+                    <span>Price: </span>
+                    <select #selectPrice (change)="activateFilterPrice(selectPrice.value)">
+                        <option class="label" [selected]="filterFieldPrice == ''" value="No filter">No Filter</option>
+                        <option class="label" *ngFor="let filter of filtersPrice" [value]="filter">
+                            {{filter}}
+                        </option>
+                    </select>
+                    <div class="container-button">
+                        <button class="remove-btn" [disabled]="inactiveFilterPrice()" (click)="removeFilterPrice()">X</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="input-body">
+            <div class="searchImg">
+                <img [src]="'asset/images/search.svg'"  alt="">
+            </div>
+            <div class="input">
+                <span>Name: </span>
+                <input class="filter-body-input" [(ngModel)]="wordSearch">
+            </div>
+            <div class="container-button">
+                <button class="remove-btn" [disabled]="inactiveFilter()" (click)="removeFilter()">X</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="loading" class="dots"></div>
+    <div *ngIf="!loading" class="page-body">
+        <app-list-header style="border-radius: 1em;" [titles]="header"></app-list-header>
+        <app-page class="page-component" [cryptoList]="getCryptoList(cryptos)"></app-page>
+    </div>
+<!--     <div class="page-body">
+        <div style="margin: 10px;" *ngFor="let crypto of getCryptoList(cryptos)">
+            <app-card [crypto]="crypto"></app-card>
+        </div>
+    </div> -->
+</div>
+<div style="height: 1em;"></div>

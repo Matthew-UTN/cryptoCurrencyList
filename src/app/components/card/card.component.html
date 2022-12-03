@@ -1,0 +1,14 @@
+<div class="card-body" [ngClass]="color">
+    <span>
+        <div>
+            <img [src]="'https://coinicons-api.vercel.app/api/icon/'+crypto.baseAsset" alt=""> 
+            <span>{{crypto.symbol}}</span>
+        </div>
+    </span>
+    <span>{{crypto.baseAsset | uppercase}}</span>
+    <span>{{crypto.openPrice}}</span>
+    <span>{{crypto.lowPrice}}</span>
+    <span>{{crypto.highPrice}}</span>
+    <span>{{crypto.lastPrice}}</span>
+    <span>{{crypto.volume}}</span>
+</div>

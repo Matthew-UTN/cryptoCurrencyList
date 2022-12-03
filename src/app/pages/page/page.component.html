@@ -1,0 +1,30 @@
+<div class="page">
+    <div *ngFor="let crypto of positionCrypto(cryptoList) | paginate: { itemsPerPage: 10, currentPage: p }; index as i">
+        <app-card [color]="i%2 == 0 ? 'clear' : 'shadow'" (click)="showModal(crypto)" [crypto]="crypto"></app-card>
+    </div>
+    <div style="background-color: white; font-weight: bold; border-radius: 1em;">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div> 
+
+<div *ngIf="modal" class="modal">
+    <div class="modal-container">
+        <span class="closeModal" (click)="closeModal()">X</span>
+        <div class="image">
+            <img [src]="'https://coinicons-api.vercel.app/api/icon/'+cryptoToShow.baseAsset" alt=""> 
+            <span>{{cryptoToShow.symbol}}</span>
+        </div>
+        <div class="information">
+            <span>Base asset: {{cryptoToShow.baseAsset | uppercase}}</span>
+            <span>Open price: {{cryptoToShow.openPrice}}</span>
+            <span>Low price: {{cryptoToShow.lowPrice}}</span>
+            <span>High price: {{cryptoToShow.highPrice}}</span>
+            <span>Last price: {{cryptoToShow.lastPrice}}</span>
+            <span>Volume: {{cryptoToShow.volume}}</span>
+            <span>Quote asset: {{cryptoToShow.quoteAsset}}</span>
+            <span>Bid price: {{cryptoToShow.bidPrice}}</span>
+            <span>Ask price: {{cryptoToShow.askPrice}}</span>
+            <span>At: {{cryptoToShow.at | date:'long'}}</span>
+        </div>
+    </div>
+</div>

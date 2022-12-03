@@ -1,0 +1,29 @@
+.title-header{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px 0px;
+    height: 30px;
+    .image-container{
+        display: flex;
+        justify-content: center;
+    }
+    span{
+        justify-content: center;
+        display: flex;
+        min-width: 6em;
+        align-items: center;
+        div{
+            align-items: center;
+            display: flex;
+            justify-content: flex-start;
+            img{
+                width: 30px;
+                margin: 0px 5px;
+            }
+            span{
+                min-width: 4em !important;
+            }
+        }
+    }
+}

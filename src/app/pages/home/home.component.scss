@@ -1,0 +1,169 @@
+.filter-body {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--background-color-filter, #2199e84f);
+    justify-content: center;
+    padding: var(--padding-filter, 10px);
+    border-radius: var(--border-radius-filters, 0.5em);
+    border: var(--border-filter, none);
+    width: 70%;
+    color: var(--principal-text-color, black);
+    box-shadow: var(--filter-shadow, 2px 4px 14px rgba(0, 0, 0, 0.25));
+    margin: 20px auto;
+
+    .container-forms{
+        width: 50%;
+        .crypto-search {
+            display: flex;
+            color: var(--principal-text-color, #000345);
+            flex-direction: column;
+            margin-bottom: 5px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+
+            .search{
+                .title{
+                    font-weight: 600;
+                    font-size: 20px;
+                }
+            }
+        
+            .center {
+                display: flex;
+                width: 85%;
+                justify-content: space-evenly;
+                margin: 5px 0px;
+                font-size: 15px;
+                span{
+                    margin-right: 5px;
+                    align-self: center;
+                }
+                select {
+                    flex: 1;
+                    height: 25px;
+                }
+            }
+        }
+    }
+  
+    .input-body{ 
+        display: flex;
+        align-self: center;
+        height: 30px;
+        width: 50%;
+
+        .input{
+            width: 90%; 
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            color: var(--principal-text-color, #000345);
+            .filter-body-input {
+                height: 25px;
+                border: 0.5px solid #aaaaaa;
+                padding: 0 5px 0 5px;
+                width: 100%;
+                font-size: 15px;
+            }
+          
+            .filter-body-input:focus {
+                outline: none !important;
+                border-color: #808080;
+                box-shadow: 0 0 3px #808080;
+            }
+        }
+
+        span{
+            margin-right: 5px;
+        }
+    }
+    .container-button {
+        display: flex;
+        min-width: none;
+        justify-content: center;
+        align-items: center;
+        .remove-btn {
+          margin-left: 0.5em;
+          min-width: 22px;
+          min-height: 22px;
+          border-radius: 5em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--color-filtro-lista-boton, var(--color-principal-texto, #0f5a81));
+          font-weight: bold;
+          border: 0.5px solid var(--color-filtro-lista-boton-bordes, #aaaaaa);
+        }
+        .remove-btn:disabled {
+          background-color: var(--color-boton-discomponent-fondo, var(--color-boton-ia-discomponent, #bcbcbc));
+          color: var(--color-boton-discomponent-texto, var(--color-boton-ia-texto, #ffffff));
+          border: 0.5px solid #aaaaaa;
+        }
+    }
+}
+
+.page-body{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+    margin: auto;
+    border: 3px solid #6a6a6a85;
+    border-radius: 1em;
+    box-shadow: var(--filter-shadow, 2px 4px 14px rgba(0, 0, 0, 0.25));;
+    .page-component{
+        border-top: 1px solid #6a6a6a85;
+    }
+}
+
+.dots {
+    margin: 5em auto;
+    width: 56px;
+    height: 26.9px;
+    background: radial-gradient(circle closest-side,#474bff 90%,#0000) 0%   50%,
+           radial-gradient(circle closest-side,#474bff 90%,#0000) 50%  50%,
+           radial-gradient(circle closest-side,#474bff 90%,#0000) 100% 50%;
+    background-size: calc(100%/3) 13.4px;
+    background-repeat: no-repeat;
+    animation: dots-7ar3yq 1s infinite linear;
+}
+ 
+@keyframes dots-7ar3yq {
+    20% {
+       background-position: 0%   0%, 50%  50%,100%  50%;
+    }
+ 
+    40% {
+       background-position: 0% 100%, 50%   0%,100%  50%;
+    }
+ 
+    60% {
+       background-position: 0%  50%, 50% 100%,100%   0%;
+    }
+ 
+    80% {
+       background-position: 0%  50%, 50%  50%,100% 100%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .filter-body{
+        flex-direction: column;
+        .container-forms{
+            width: 100%;
+            .center{
+                width: 100% !important;
+            }
+        }
+        .input-body{
+            width: 100%;
+
+            .input{
+                width: 100% !important;
+            }
+        }
+    }
+    .page-body{
+        overflow-y: auto;
+    }
+}

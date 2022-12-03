@@ -1,0 +1,15 @@
+<div class="title-header">
+    <span>
+        <div>
+            <img *ngIf="titles.baseAsset != 'Base Asset'" [src]="'https://coinicons-api.vercel.app/api/icon/'+titles.baseAsset" alt=""> 
+            <span>{{titles.symbol}}</span>
+        </div>
+    </span>
+    <span *ngIf="titles.baseAsset != 'Base Asset';else other_content">{{titles.baseAsset | uppercase}}</span>
+    <ng-template #other_content><span>{{titles.baseAsset}}</span></ng-template>
+    <span>{{titles.openPrice}}</span>
+    <span>{{titles.lowPrice}}</span>
+    <span>{{titles.highPrice}}</span>
+    <span>{{titles.lastPrice}}</span>
+    <span>{{titles.volume}}</span>
+</div>
